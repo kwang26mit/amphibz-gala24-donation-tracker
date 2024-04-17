@@ -6,87 +6,82 @@
   <title>Amphibious Achievement Donation Tracker</title>
   <style>
     body {
-      font-family: 'Helvetica', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-image: url('https://img.freepik.com/free-vector/watercolor-background-world-oceans-day-celebration_52683-112746.jpg'); /* Replace 'under_the_sea.jpg' with your under the sea themed photo */
-      background-size: cover;
-      background-position: center;
+      background-color: #f4f4f4;
     }
     .container {
       max-width: 800px;
       margin: 20px auto;
       padding: 20px;
-      background-color: rgba(0, 128, 128, 0.7); /* Green color with transparency */
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     h1 {
       text-align: center;
-      color: #ffffff; /* White text color */
     }
-    .milestone {
+    .progress-container {
       margin-bottom: 20px;
-    }
-    .progress {
-      background-color: #87CEEB; /* Sky blue progress bar */
-      border-radius: 10px;
-      height: 30px;
-      margin-bottom: 10px;
       position: relative;
     }
     .progress-bar {
-      background-color: #228B22; /* Forest green progress bar */
-      border-radius: 10px;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      height: 20px;
     }
-    .ticks {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 5px;
-      color: #ffffff; /* White tick text color */
+    .progress-tick {
+      position: absolute;
+      width: 2px;
+      background-color: #000;
+      height: 10px;
+      top: 5px;
+    }
+    .progress-label {
+      position: absolute;
+      top: 25px;
+      font-size: 12px;
+      text-align: center;
+      transform: translateX(-50%);
     }
     .amount {
       font-size: 18px;
       font-weight: bold;
       text-align: center;
-      color: #ffffff; /* White text color */
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Amphibious Achievement Donation Tracker</h1>
-    <div class="milestone">
-      <div class="progress">
-        <div class="progress-bar" style="width: {{ progress }}%;"></div>
-        <div class="ticks">
-          <div>$750</div>
-          <div>$1250</div>
-          <div>$2000</div>
-          <div>$2500</div>
-        </div>
-      </div>
-      <div class="amount">${{ total }}</div>
+    <div class="progress-container">
+      <div class="progress-bar" style="width: {{ progress }}%;"></div>
+      <div class="progress-tick" style="left: 15%;"></div>
+      <div class="progress-tick" style="left: 37.5%;"></div>
+      <div class="progress-tick" style="left: 60%;"></div>
+      <div class="progress-tick" style="left: 82.5%;"></div>
+      <div class="progress-label" style="left: 15%;">$750</div>
+      <div class="progress-label" style="left: 37.5%;">$1250</div>
+      <div class="progress-label" style="left: 60%;">$2000</div>
+      <div class="progress-label" style="left: 82.5%;">$2500</div>
     </div>
+    <div class="amount">${{ total }}</div>
   </div>
 
   <script>
     // Total donations and milestones
     const total = 1500; // Change this value to the current total donations
-    const milestones = [750, 1250, 2000, 2500];
+    const milestone1 = 750;
+    const milestone2 = 1250;
+    const milestone3 = 2000;
+    const milestone4 = 2500;
 
     // Calculate progress percentage
-    const progress = Math.min((total / milestones[milestones.length - 1]) * 100, 100);
+    const progress = Math.min((total / milestone4) * 100, 100);
 
-    // Update progress bar width
+    // Update progress bar
     document.querySelector('.progress-bar').style.width = progress + '%';
-
-    // Update total amount
-    document.querySelector('.amount').innerHTML = '$' + total;
   </script>
 </body>
 </html>
