@@ -27,7 +27,7 @@
       position: relative;
     }
     .progress-bar {
-      background-color: #f0f0f0;
+      background-color: #007bff; /* Blue color */
       border-radius: 5px;
       height: 20px;
     }
@@ -45,10 +45,11 @@
       text-align: center;
       transform: translateX(-50%);
     }
-    .amount {
-      font-size: 18px;
-      font-weight: bold;
-      text-align: center;
+    .milestone-description {
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      margin-bottom: 20px;
     }
   </style>
 </head>
@@ -66,7 +67,18 @@
       <div class="progress-label" style="left: 60%;">$2000</div>
       <div class="progress-label" style="left: 82.5%;">$2500</div>
     </div>
-    <div class="amount">${{ total }}</div>
+    <div class="milestone-description">
+      <strong>$750:</strong> Watch our Executive Directors get pied at Gala!
+    </div>
+    <div class="milestone-description">
+      <strong>$1250:</strong> A surprise Amphibz mascot will bring the roof down with their Gala dance moves! Who is under the disguise?
+    </div>
+    <div class="milestone-description">
+      <strong>$2000:</strong> No one is safe from the wrath of the pie– watch our entire Directors board get pied!
+    </div>
+    <div class="milestone-description">
+      <strong>$2500:</strong> Watch as our very own Executive Directors take the Under the Sea theme to the next level and jump in the Charles!
+    </div>
   </div>
 
   <script>
