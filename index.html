@@ -6,44 +6,54 @@
   <title>Amphibious Achievement Donation Tracker</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Helvetica', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background-image: url('https://img.freepik.com/free-vector/watercolor-background-world-oceans-day-celebration_52683-112746.jpg'); /* Replace 'under_the_sea.jpg' with your under the sea themed photo */
+      background-size: cover;
+      background-position: center;
     }
     .container {
       max-width: 800px;
       margin: 20px auto;
       padding: 20px;
-      background-color: #fff;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 128, 128, 0.7); /* Green color with transparency */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
     h1 {
       text-align: center;
+      color: #ffffff; /* White text color */
     }
     .milestone {
       margin-bottom: 20px;
     }
-    .milestone h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
     .progress {
-      background-color: #f0f0f0;
-      border-radius: 5px;
-      height: 20px;
+      background-color: #87CEEB; /* Sky blue progress bar */
+      border-radius: 10px;
+      height: 30px;
       margin-bottom: 10px;
+      position: relative;
     }
     .progress-bar {
-      background-color: #007bff;
-      border-radius: 5px;
+      background-color: #228B22; /* Forest green progress bar */
+      border-radius: 10px;
       height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .ticks {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 5px;
+      color: #ffffff; /* White tick text color */
     }
     .amount {
       font-size: 18px;
       font-weight: bold;
       text-align: center;
+      color: #ffffff; /* White text color */
     }
   </style>
 </head>
@@ -51,58 +61,32 @@
   <div class="container">
     <h1>Amphibious Achievement Donation Tracker</h1>
     <div class="milestone">
-      <h2>Milestone 1: $750</h2>
       <div class="progress">
-        <div class="progress-bar" style="width: {{ progress1 }}%;"></div>
+        <div class="progress-bar" style="width: {{ progress }}%;"></div>
+        <div class="ticks">
+          <div>$750</div>
+          <div>$1250</div>
+          <div>$2000</div>
+          <div>$2500</div>
+        </div>
       </div>
-      <div class="amount">${{ total }} / $750</div>
-    </div>
-    <div class="milestone">
-      <h2>Milestone 2: $1250</h2>
-      <div class="progress">
-        <div class="progress-bar" style="width: {{ progress2 }}%;"></div>
-      </div>
-      <div class="amount">${{ total }} / $1250</div>
-    </div>
-    <div class="milestone">
-      <h2>Milestone 3: $2000</h2>
-      <div class="progress">
-        <div class="progress-bar" style="width: {{ progress3 }}%;"></div>
-      </div>
-      <div class="amount">${{ total }} / $2000</div>
-    </div>
-    <div class="milestone">
-      <h2>Milestone 4: $2500</h2>
-      <div class="progress">
-        <div class="progress-bar" style="width: {{ progress4 }}%;"></div>
-      </div>
-      <div class="amount">${{ total }} / $2500</div>
+      <div class="amount">${{ total }}</div>
     </div>
   </div>
 
   <script>
     // Total donations and milestones
     const total = 1500; // Change this value to the current total donations
-    const milestone1 = 750;
-    const milestone2 = 1250;
-    const milestone3 = 2000;
-    const milestone4 = 2500;
+    const milestones = [750, 1250, 2000, 2500];
 
-    // Calculate progress percentage for each milestone
-    const progress1 = Math.min((total / milestone1) * 100, 100);
-    const progress2 = Math.min((total / milestone2) * 100, 100);
-    const progress3 = Math.min((total / milestone3) * 100, 100);
-    const progress4 = Math.min((total / milestone4) * 100, 100);
+    // Calculate progress percentage
+    const progress = Math.min((total / milestones[milestones.length - 1]) * 100, 100);
 
-    // Update progress bars and amounts
-    document.querySelectorAll('.progress-bar')[0].style.width = progress1 + '%';
-    document.querySelectorAll('.progress-bar')[1].style.width = progress2 + '%';
-    document.querySelectorAll('.progress-bar')[2].style.width = progress3 + '%';
-    document.querySelectorAll('.progress-bar')[3].style.width = progress4 + '%';
-    document.querySelectorAll('.amount')[0].innerHTML = '$' + total + ' / $750';
-    document.querySelectorAll('.amount')[1].innerHTML = '$' + total + ' / $1250';
-    document.querySelectorAll('.amount')[2].innerHTML = '$' + total + ' / $2000';
-    document.querySelectorAll('.amount')[3].innerHTML = '$' + total + ' / $2500';
+    // Update progress bar width
+    document.querySelector('.progress-bar').style.width = progress + '%';
+
+    // Update total amount
+    document.querySelector('.amount').innerHTML = '$' + total;
   </script>
 </body>
 </html>
