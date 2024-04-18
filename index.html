@@ -64,10 +64,10 @@
       <div class="progress-tick" style="left: 37.5%;"></div>
       <div class="progress-tick" style="left: 60%;"></div>
       <div class="progress-tick" style="left: 82.5%;"></div>
-      <div class="progress-label" style="left: 30%;">$750</div>
-      <div class="progress-label" style="left: 50%;">$1250</div>
-      <div class="progress-label" style="left: 80%;">$2000</div>
-      <div class="progress-label" style="left: 100%;">$2500</div>
+      <div class="progress-label" style="left: 27.3%;">$750</div>
+      <div class="progress-label" style="left: 55.3%;">$1250</div>
+      <div class="progress-label" style="left: 72.7%;">$2000</div>
+      <div class="progress-label" style="left: 90.9%;">$2500</div>
     </div>
     <div class="milestone-description">
       <strong>$750:</strong> Watch our Executive Directors get pied at Gala!
@@ -90,9 +90,10 @@
     const milestone2 = 1250;
     const milestone3 = 2000;
     const milestone4 = 2500;
+    const maxamt = 2750;
 
     // Calculate progress percentage
-    const progress = Math.min((total / milestone4) * 100, 100);
+    const progress = Math.min((total / maxamt) * 100, 100);
 
     // Update progress bar
     document.querySelector('.progress-bar').style.width = progress + '%';
